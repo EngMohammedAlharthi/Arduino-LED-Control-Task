@@ -1,23 +1,30 @@
-# Arduino LEDs and Buttons Control
+const int button1 = 2;
+const int button2 = 3;
+const int button3 = 4;
 
-This project demonstrates a simple Arduino circuit that controls 3 LEDs using 3 push buttons.
+const int led1 = 12;
+const int led2 = 11;
+const int led3 = LED_BUILTIN; 
 
-Components Used:
-- Arduino Uno R3  
-- 3x LEDs (Red)  
-- 3x 220Ω resistors  
-- 3x Push buttons  
-- Breadboard & jumper wires  
+void setup() {
 
-Functionality:
-Each button is connected to a digital input pin and mapped to an individual LED.  
-When a button is pressed, the corresponding LED turns on. Once released, the LED turns off.
+  pinMode(button1, INPUT);
+  pinMode(button2, INPUT);
+  pinMode(button3, INPUT);
 
-Pins Mapping:
-- Button 1 → Pin 2 → LED 1 → Pin 12  
-- Button 2 → Pin 3 → LED 2 → Pin 11  
-- Button 3 → Pin 4 → LED 3 → Pin 13 (built-in)
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+}
 
-Notes:
-- Buttons are connected with pull-down configuration.
-- The project is simulated and tested in Tinkercad.
+void loop() {
+  
+  int b1 = digitalRead(button1);
+  int b2 = digitalRead(button2);
+  int b3 = digitalRead(button3);
+
+  
+  digitalWrite(led1, b1);
+  digitalWrite(led2, b2);
+  digitalWrite(led3, b3);
+}
